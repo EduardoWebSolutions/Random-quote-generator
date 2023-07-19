@@ -1,8 +1,14 @@
 import { useState } from "react";
 import "./App.css";
+import { useEffect } from "react";
+import { CSSProperties } from "react";
 
 function App() {
-  const [quotes, setquotes] = useState([
+  interface quoteInterface {
+    quote: string;
+    author: string;
+  }
+  const [quotes, setQuotes] = useState<quoteInterface[]>([
     {
       quote:
         "Live like no one else so that later you can live like no one else.",
@@ -95,12 +101,8 @@ function App() {
       quote: "To master a new technology, you have to play with it.",
       author: "Jordan B. Peterson",
     },
-    {
-      quote: "Qual foi Peter",
-      author: "Christian",
-    },
   ]);
-  const [colors, setColors] = useState([
+  const [colors, setColors] = useState<colorInterface[]>([
     "#ff9ff3",
     "#f368e0",
     "#00d2d3",
@@ -122,33 +124,72 @@ function App() {
     "#576574",
     "#222f3e",
   ]);
+  const [randomQuote, setRandomQuote] = useState<quoteInterface | null>(null);
+
+  useEffect(() => {
+    setRandomQuote(getRandomQuote(quotes));
+  }, []);
+
+  const styles: { [key: string]: React.CSSProperties } = {
+    container: {
+      backgroundColor: "grey",
+    },
+  };
+
+  const getRandomQuote = (
+    quotesArr: quoteInterface[]
+  ): quoteInterface | null => {
+    if (quotesArr.length === 0) return null;
+    const randomIndex = Math.floor(Math.random() * quotesArr.length);
+    return quotesArr[randomIndex];
+  };
+
+  const handleNewQuote = () => {
+    const newRandomQuote = getRandomQuote(quotes);
+    setRandomQuote(newRandomQuote);
+  };
+
+  const getRandomColor = (colorsArr: colorInterface[]): colorInterface => {
+    const randomIndex = Math.floor(Math.random() * colorsArr.length);
+    return colorsArr[randomIndex];
+  };
 
   return (
     <>
-      <div className="min-h-screen flex justify-center items-center backg">
-        <div className="bg-white p-4 w-24 flex flex-col rounded">
-          <div className="container flex-wrap">
-            <i className="fa-solid fa-quote-left fa-2x"></i>
-            <span className="text-break flex-wrap te1" id="text">
-              {quotes}
-            </span>
-            <p className="text-end te2" id="author">
-              - {}
-            </p>
-          </div>
-          <div className="container flex justify-content-between">
-            <div className="buttons">
-              <i className="fa-brands fa-twitter-square fa-3x me-1 btn"></i>
-              <i className="fa-brands fa-tumblr-square fa-3x btn"></i>
+      {randomQuote ? (
+        <div
+          className="min-h-screen flex justify-center items-center backg"
+          style={styles.container}
+        >
+          <div className="bg-white p-4 w-5/12 flex flex-col rounded">
+            <div className="container flex-wrap">
+              <i className="fa-solid fa-quote-left fa-2x"></i>
+              <span className="text-break flex-wrap te1" id="text">
+                <p>{randomQuote.quote}</p>
+              </span>
+              <p className="text-end te2" id="author">
+                - {randomQuote.author}
+              </p>
             </div>
-            <div className="quote">
-              <button className="btn btn-default text-light p-2 animated pulse">
-                New quote
-              </button>
+            <div className="container flex justify-content-between">
+              <div className="buttons">
+                <i className="fa-brands fa-twitter-square fa-3x me-1 btn"></i>
+                <i className="fa-brands fa-tumblr-square fa-3x btn"></i>
+              </div>
+              <div className="quote">
+                <button
+                  className="btn btn-default text-light p-2 animated pulse"
+                  onClick={handleNewQuote}
+                >
+                  New quote
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <p>Loading</p>
+      )}
     </>
   );
 }
