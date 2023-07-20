@@ -1,14 +1,17 @@
-import { useState } from "react";
-import "./App.css";
-import { useEffect } from "react";
-import { CSSProperties } from "react";
+import { useState, useEffect } from "react";
 
-function App() {
-  interface quoteInterface {
-    quote: string;
-    author: string;
-  }
-  const [quotes, setQuotes] = useState<quoteInterface[]>([
+interface Quote {
+  quote: string;
+  author: string;
+}
+
+function getRandomItem<T>(items: T[]): T {
+  const randomIndex = Math.floor(Math.random() * items.length);
+  return items[randomIndex];
+}
+
+const App: React.FC = () => {
+  const [quotes, setQuotes] = useState<Quote[]>([
     {
       quote:
         "Live like no one else so that later you can live like no one else.",
@@ -102,7 +105,7 @@ function App() {
       author: "Jordan B. Peterson",
     },
   ]);
-  const [colors, setColors] = useState<colorInterface[]>([
+  const [colors, setColors] = useState<string[]>([
     "#ff9ff3",
     "#f368e0",
     "#00d2d3",
@@ -124,51 +127,43 @@ function App() {
     "#576574",
     "#222f3e",
   ]);
-  const [randomQuote, setRandomQuote] = useState<quoteInterface | null>(null);
+  const [randomQuote, setRandomQuote] = useState<Quote | null>(null);
+  const [randomColor, setRandomColor] = useState<string>("");
 
   useEffect(() => {
-    setRandomQuote(getRandomQuote(quotes));
-  }, []);
-
-  const styles: { [key: string]: React.CSSProperties } = {
-    container: {
-      backgroundColor: "grey",
-    },
-  };
-
-  const getRandomQuote = (
-    quotesArr: quoteInterface[]
-  ): quoteInterface | null => {
-    if (quotesArr.length === 0) return null;
-    const randomIndex = Math.floor(Math.random() * quotesArr.length);
-    return quotesArr[randomIndex];
-  };
+    setRandomQuote(getRandomItem(quotes));
+    setRandomColor(getRandomItem(colors));
+  }, [quotes, colors]);
 
   const handleNewQuote = () => {
-    const newRandomQuote = getRandomQuote(quotes);
-    setRandomQuote(newRandomQuote);
+    setRandomQuote(getRandomItem(quotes));
+  };
+  const handleNewColor = () => {
+    setRandomColor(getRandomItem(colors));
   };
 
-  const getRandomColor = (colorsArr: colorInterface[]): colorInterface => {
-    const randomIndex = Math.floor(Math.random() * colorsArr.length);
-    return colorsArr[randomIndex];
+  const handleNewClick = () => {
+    handleNewQuote();
+    handleNewColor();
   };
+
+  const { quote, author } = randomQuote || {};
 
   return (
     <>
       {randomQuote ? (
         <div
           className="min-h-screen flex justify-center items-center backg"
-          style={styles.container}
+          style={{ backgroundColor: randomColor }}
         >
           <div className="bg-white p-4 w-5/12 flex flex-col rounded">
             <div className="container flex-wrap">
               <i className="fa-solid fa-quote-left fa-2x"></i>
               <span className="text-break flex-wrap te1" id="text">
-                <p>{randomQuote.quote}</p>
+                <p>{quote}</p>
               </span>
               <p className="text-end te2" id="author">
-                - {randomQuote.author}
+                - {author}
               </p>
             </div>
             <div className="container flex justify-content-between">
@@ -179,7 +174,7 @@ function App() {
               <div className="quote">
                 <button
                   className="btn btn-default text-light p-2 animated pulse"
-                  onClick={handleNewQuote}
+                  onClick={handleNewClick}
                 >
                   New quote
                 </button>
@@ -188,10 +183,10 @@ function App() {
           </div>
         </div>
       ) : (
-        <p>Loading</p>
+        <p>No quotes available</p>
       )}
     </>
   );
-}
+};
 
 export default App;
