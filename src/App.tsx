@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 
 interface Quote {
@@ -11,7 +12,7 @@ function getRandomItem<T>(items: T[]): T {
 }
 
 const App: React.FC = () => {
-  const [quotes, setQuotes] = useState<Quote[]>([
+  const [quotes] = useState<Quote[]>([
     {
       quote:
         "Live like no one else so that later you can live like no one else.",
@@ -105,7 +106,7 @@ const App: React.FC = () => {
       author: "Jordan B. Peterson",
     },
   ]);
-  const [colors, setColors] = useState<string[]>([
+  const [colors] = useState<string[]>([
     "#ff9ff3",
     "#f368e0",
     "#00d2d3",
@@ -153,28 +154,49 @@ const App: React.FC = () => {
     <>
       {randomQuote ? (
         <div
-          className="min-h-screen flex justify-center items-center backg"
+          className="min-h-screen flex items-center justify-center"
           style={{ backgroundColor: randomColor }}
         >
-          <div className="bg-white p-4 w-5/12 flex flex-col rounded">
-            <div className="container flex-wrap">
-              <i className="fa-solid fa-quote-left fa-2x"></i>
-              <span className="text-break flex-wrap te1" id="text">
-                <p>{quote}</p>
+          <div className="bg-white rounded-md w-[550px] p-12">
+            <div className="">
+              <span className="">
+                <p style={{ color: randomColor }} className="text-3xl">
+                  {" "}
+                  <FontAwesomeIcon
+                    style={{ color: randomColor }}
+                    icon={["fas", "quote-left"]}
+                    className="mr-3 font-normal"
+                  />
+                  {quote}
+                </p>
               </span>
-              <p className="text-end te2" id="author">
+              <p
+                className="text-right mt-5 text-base"
+                style={{ color: randomColor }}
+              >
                 - {author}
               </p>
             </div>
-            <div className="container flex justify-content-between">
-              <div className="buttons">
-                <i className="fa-brands fa-twitter-square fa-3x me-1 btn"></i>
-                <i className="fa-brands fa-tumblr-square fa-3x btn"></i>
-              </div>
-              <div className="quote">
+            <div className="flex place-content-between items-center mt-5">
+              <div className="">
                 <button
-                  className="btn btn-default text-light p-2 animated pulse"
+                  className="h-[40px] w-[40px] text-white text-lg rounded "
+                  style={{ backgroundColor: randomColor }}
+                >
+                  <FontAwesomeIcon icon={["fab", "twitter"]} />
+                </button>
+                <button
+                  className="h-[40px] w-[40px] m-2 text-lg text-white rounded"
+                  style={{ backgroundColor: randomColor }}
+                >
+                  <FontAwesomeIcon icon={["fab", "tumblr"]} />
+                </button>
+              </div>
+              <div className="">
+                <button
+                  className="py-2 px-4 m-2 text-white rounded"
                   onClick={handleNewClick}
+                  style={{ backgroundColor: randomColor }}
                 >
                   New quote
                 </button>
