@@ -150,6 +150,27 @@ const App: React.FC = () => {
 
   const { quote, author } = randomQuote || {};
 
+  const handleShareTwitter = () => {
+    if (randomQuote) {
+      const twitterUrl = `https://twitter.com/intent/tweet?text="${encodeURIComponent(
+        randomQuote.quote
+      )}" ${encodeURIComponent(randomQuote.author)} ${encodeURIComponent(
+        "#quotes #EduardoWebSolutions"
+      )}`;
+      window.open(twitterUrl, "_blank");
+    }
+  };
+
+  const handleShareTumblr = () => {
+    if (randomQuote) {
+      const tumblrUrl = `https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,EduardoWebSolutions&caption=${encodeURIComponent(
+        randomQuote.author
+      )}&content=${encodeURIComponent(
+        randomQuote.quote
+      )}&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button`;
+      window.open(tumblrUrl, "_blank");
+    }
+  };
   return (
     <>
       {randomQuote ? (
@@ -179,18 +200,22 @@ const App: React.FC = () => {
             </div>
             <div className="flex place-content-between items-center mt-5">
               <div className="">
-                <button
-                  className="h-[40px] w-[40px] text-white text-lg rounded "
-                  style={{ backgroundColor: randomColor }}
-                >
-                  <FontAwesomeIcon icon={["fab", "twitter"]} />
-                </button>
-                <button
-                  className="h-[40px] w-[40px] m-2 text-lg text-white rounded"
-                  style={{ backgroundColor: randomColor }}
-                >
-                  <FontAwesomeIcon icon={["fab", "tumblr"]} />
-                </button>
+                <a href="#" onClick={handleShareTwitter}>
+                  <button
+                    className="h-[40px] w-[40px] text-white text-lg rounded "
+                    style={{ backgroundColor: randomColor }}
+                  >
+                    <FontAwesomeIcon icon={["fab", "twitter"]} />
+                  </button>
+                </a>
+                <a href="#" onClick={handleShareTumblr}>
+                  <button
+                    className="h-[40px] w-[40px] m-2 text-lg text-white rounded"
+                    style={{ backgroundColor: randomColor }}
+                  >
+                    <FontAwesomeIcon icon={["fab", "tumblr"]} />
+                  </button>
+                </a>
               </div>
               <div className="">
                 <button
