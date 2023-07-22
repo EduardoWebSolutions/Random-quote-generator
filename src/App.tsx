@@ -1,5 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
+import QuoteDisplay from "./Components/QuoteDisplay";
 
 interface Quote {
   quote: string;
@@ -148,8 +148,6 @@ const App: React.FC = () => {
     handleNewColor();
   };
 
-  const { quote, author } = randomQuote || {};
-
   const handleShareTwitter = () => {
     if (randomQuote) {
       const twitterUrl = `https://twitter.com/intent/tweet?text="${encodeURIComponent(
@@ -171,63 +169,18 @@ const App: React.FC = () => {
       window.open(tumblrUrl, "_blank");
     }
   };
+
   return (
     <>
       {randomQuote ? (
-        <div
-          className="min-h-screen flex items-center justify-center"
-          style={{ backgroundColor: randomColor }}
-        >
-          <div className="bg-white rounded-md w-[550px] p-12">
-            <div className="">
-              <span className="">
-                <p style={{ color: randomColor }} className="text-3xl">
-                  {" "}
-                  <FontAwesomeIcon
-                    style={{ color: randomColor }}
-                    icon={["fas", "quote-left"]}
-                    className="mr-3 font-normal"
-                  />
-                  {quote}
-                </p>
-              </span>
-              <p
-                className="text-right mt-5 text-base"
-                style={{ color: randomColor }}
-              >
-                - {author}
-              </p>
-            </div>
-            <div className="flex place-content-between items-center mt-5">
-              <div className="">
-                <a href="#" onClick={handleShareTwitter}>
-                  <button
-                    className="h-[40px] w-[40px] text-white text-lg rounded "
-                    style={{ backgroundColor: randomColor }}
-                  >
-                    <FontAwesomeIcon icon={["fab", "twitter"]} />
-                  </button>
-                </a>
-                <a href="#" onClick={handleShareTumblr}>
-                  <button
-                    className="h-[40px] w-[40px] m-2 text-lg text-white rounded"
-                    style={{ backgroundColor: randomColor }}
-                  >
-                    <FontAwesomeIcon icon={["fab", "tumblr"]} />
-                  </button>
-                </a>
-              </div>
-              <div className="">
-                <button
-                  className="py-2 px-4 m-2 text-white rounded"
-                  onClick={handleNewClick}
-                  style={{ backgroundColor: randomColor }}
-                >
-                  New quote
-                </button>
-              </div>
-            </div>
-          </div>
+        <div>
+          <QuoteDisplay
+            quote={randomQuote}
+            randomColor={randomColor}
+            onShareTwitter={handleShareTwitter}
+            onShareTumblr={handleShareTumblr}
+            onClick={handleNewClick}
+          />
         </div>
       ) : (
         <p>No quotes available</p>
