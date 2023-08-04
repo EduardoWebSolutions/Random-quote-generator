@@ -30,7 +30,7 @@ const QuoteDisplay: React.FC<QuoteDisplayProps> = ({
       className="min-h-screen flex items-center justify-center transition duration-1000 fade-in-out"
       style={{ backgroundColor: randomColor }}
     >
-      <div className="bg-white rounded-md w-[550px] p-12" id="quote-box">
+      <div className="bg-white rounded-md w-[550px] p-12 md:m-2" id="quote-box">
         <div className="">
           <span className="">
             <p
