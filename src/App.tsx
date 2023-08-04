@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import QuoteDisplay from "./Components/QuoteDisplay";
+import "../index.css";
 
 interface Quote {
   quote: string;
