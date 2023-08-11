@@ -50,6 +50,18 @@ In future iterations, the Random Quote Generator project could be expanded with 
 - **Customization:** Allowing users to customize the appearance of the application, such as choosing color themes.
 
 - **User Engagement Features:** Implementing user accounts, comment sections, and discussion forums to enhance user engagement and community-building.
+- 
+## Getting Started
+Clone this repository: ` git clone https://github.com/EduardoWebSolutions/random-quote-generator.git `
+
+Navigate to the project directory: ` cd random-quote-generator`
+
+Install dependencies: ` npm install `
+
+Start the development server: ` npm start `
+
+Open your browser and go to http://localhost:3000 to see the previewer in action.
+Feel free to customize, expand, or enhance this project to fit your needs and preferences.
 
 ## Conclusion:
 The Random Quote Generator is more than just a web application; it's a source of inspiration that empowers users to start their day with positivity and motivation. By combining technology, design, and insightful quotes, this project contributes to making the digital world a brighter and more uplifting place.
