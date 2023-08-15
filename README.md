@@ -1,6 +1,5 @@
 # <a href="https://eduardowebsolutions.github.io/random-quote-generator/" target="_blank">Random Quote Generator</a>
 
-
 The Random Quote Generator is an interactive web application designed to provide users with inspiring and thought-provoking quotes from various authors. This project aims to offer users a daily dose of wisdom and motivation by displaying a randomly selected quote along with its author. With each click of a button, users can discover new quotes and share their favorites on social media platforms like Twitter and Tumblr.
 
 ## Key Features:
@@ -53,18 +52,25 @@ In future iterations, the Random Quote Generator project could be expanded with 
 
 - **User Engagement Features:** Implementing user accounts, comment sections, and discussion forums to enhance user engagement and community-building.
   
-## Getting Started
-Clone this repository: ` git clone https://github.com/EduardoWebSolutions/random-quote-generator.git `
+## Getting Started:
 
-Navigate to the project directory: ` cd random-quote-generator`
+1. **Clone this repository:** ` git clone https://github.com/EduardoWebSolutions/random-quote-generator.git `
 
-Install dependencies: ` npm install `
+1. **Navigate to the project directory:** ` cd random-quote-generator`
 
-Start the development server: ` npm start `
+1. **Install dependencies:** ` npm install `
 
-Open your browser and go to http://localhost:3000 to see the previewer in action.
+1. **Start the development server:** ` npm start `
+
+1. **Open your browser and go to http://localhost:3000 to see the previewer in action.**
+
 Feel free to customize, expand, or enhance this project to fit your needs and preferences. Happy Quote Sharing!
 
 ## Conclusion:
 
 The Random Quote Generator is more than just a web application; it's a source of inspiration that empowers users to start their day with positivity and motivation. By combining technology, design, and insightful quotes, this project contributes to making the digital world a brighter and more uplifting place.
+
+---
+
+For questions, suggestions, and contributions, please feel free to reach out to me [here](https://github.com/EduardoWebSolutions/).
+
