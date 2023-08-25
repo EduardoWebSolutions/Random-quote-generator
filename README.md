@@ -54,13 +54,13 @@ In future iterations, the Random Quote Generator project could be expanded with 
   
 ## Getting Started:
 
-1. **Clone this repository:** ` git clone https://github.com/EduardoWebSolutions/random-quote-generator.git `
+1. **Clone this repository:** `git clone https://github.com/EduardoWebSolutions/random-quote-generator.git`
 
-1. **Navigate to the project directory:** ` cd random-quote-generator`
+1. **Navigate to the project directory:** `cd random-quote-generator`
 
-1. **Install dependencies:** ` npm install `
+1. **Install dependencies:** `npm install`
 
-1. **Start the development server:** ` npm start `
+1. **Start the development server:** `npm start`
 
 1. **Open your browser and go to http://localhost:3000 to see the previewer in action.**
 
