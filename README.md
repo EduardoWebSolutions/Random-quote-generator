@@ -51,7 +51,7 @@ In future iterations, the Random Quote Generator project could be expanded with 
 - **Customization:** Allowing users to customize the appearance of the application, such as choosing color themes.
 
 - **User Engagement Features:** Implementing user accounts, comment sections, and discussion forums to enhance user engagement and community-building.
-  
+
 ## Getting Started:
 
 1. **Clone this repository:** `git clone https://github.com/EduardoWebSolutions/random-quote-generator.git`
@@ -72,8 +72,7 @@ The Random Quote Generator is more than just a web application; it's a source of
 
 ---
 
-For questions, suggestions, and contributions, please feel free to reach out: 
+For questions, suggestions, and contributions, please feel free to reach out:
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/EduardoWebSolutions/)
 [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/EduardoWebSlt)
-
