@@ -1,7 +1,7 @@
 # <a href="https://eduardowebsolutions.github.io/random-quote-generator/" target="_blank">Random Quote Generator</a>
 
 The Random Quote Generator is an interactive web application designed to provide users with inspiring and thought-provoking quotes from various authors. This project aims to offer users a daily dose of wisdom and motivation by displaying a randomly selected quote along with its author. With each click of a button, users can discover new quotes and share their favorites on social media platforms like Twitter and Tumblr.
-Check it out for yourself <a href="https://eduardowebsolutions.github.io/random-quote-generator/" target="_blank">Here!</a>
+ <a href="https://eduardowebsolutions.github.io/random-quote-generator/" target="_blank">Check it out for yourself</a>
 
 ![random-quote-generator-preview](https://github.com/EduardoWebSolutions/random-quote-generator/blob/main/display/random-quote-machine-preview.png)
 
